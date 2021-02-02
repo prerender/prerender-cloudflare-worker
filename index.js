@@ -108,11 +108,13 @@ addEventListener('fetch', event => {
   const url = new URL(request.url);
   const { hostname } = url;
   const requestUserAgent = (request.headers.get('User-Agent') || '').toLowerCase();
+  const xPrerender = request.headers.get('X-Prerender');
   const pathName = url.pathname.toLowerCase();
   const ext = pathName.substring(pathName.lastIndexOf('.') || pathName.length);
 
   if (
-    isOneOfThem(BOT_AGENTS, requestUserAgent)
+    !xPrerender
+    && isOneOfThem(BOT_AGENTS, requestUserAgent)
     && !isOneOfThem(IGNORE_EXTENSIONS, ext)
     && isOneOfThem(PRERENDERED_DOMAINS, hostname)
   ) {
