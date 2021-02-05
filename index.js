@@ -114,7 +114,7 @@ addEventListener('fetch', event => {
 
   if (
     !xPrerender
-    && isOneOfThem(BOT_AGENTS, requestUserAgent)
+    && containsOneOfThem(BOT_AGENTS, requestUserAgent)
     && !isOneOfThem(IGNORE_EXTENSIONS, ext)
     && isOneOfThem(PRERENDERED_DOMAINS, hostname)
   ) {
@@ -123,7 +123,7 @@ addEventListener('fetch', event => {
 })
 
 /**
- * Helper function to check if an array contains an element or not.
+ * Helper function to check if an array contains an exact match for an element or not.
  *
  * @param {string[]} array - The array to check.
  * @param {string} element - The element to check if the array contains.
@@ -131,6 +131,17 @@ addEventListener('fetch', event => {
  */
 function isOneOfThem(array, element) {
   return array.some(e => e === element);
+}
+
+/**
+ * Helper function to check if an array contains an element or not.
+ *
+ * @param {string[]} array - The array to check.
+ * @param {string} element - The element to check if the array contains.
+ * @returns {boolean}
+ */
+function containsOneOfThem(array, element) {
+  return array.some(e => element.indexOf(e) !== -1);
 }
 
 /**
