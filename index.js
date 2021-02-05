@@ -151,13 +151,15 @@ function containsOneOfThem(array, element) {
  * @returns {Promise<Response>}
  */
 function prerenderRequest(request) {
-  const { url } = request;
+  const { url, headers } = request;
   const prerenderUrl = `https://service.prerender.io/${url}`;
-  const headers = new Headers({
-    'X-Prerender-Token': API_KEY
-  });
+  const headersToSend = new Headers(headers);
+
+  headersToSend.set('X-Prerender-Token', API_KEY);
+
   const prerenderRequest = new Request(prerenderUrl, {
-    headers
+    headers: headersToSend
   });
+
   return fetch(prerenderRequest);
 }
