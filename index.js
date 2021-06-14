@@ -158,7 +158,8 @@ function prerenderRequest(request) {
   headersToSend.set('X-Prerender-Token', API_KEY);
 
   const prerenderRequest = new Request(prerenderUrl, {
-    headers: headersToSend
+    headers: headersToSend,
+    redirect: 'manual',
   });
 
   return fetch(prerenderRequest);
