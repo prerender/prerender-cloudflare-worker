@@ -51,6 +51,7 @@ const BOT_AGENTS = [
   'xing-contenttabreceiver',
   'chrome-lighthouse',
   'telegrambot',
+  'google-inspectiontool'
 ];
 
 // These are the extensions that the worker will skip prerendering
@@ -159,7 +160,8 @@ function prerenderRequest(request) {
   headersToSend.set('X-Prerender-Token', API_KEY);
 
   const prerenderRequest = new Request(prerenderUrl, {
-    headers: headersToSend
+    headers: headersToSend,
+    redirect: 'manual',
   });
 
   return fetch(prerenderRequest);
