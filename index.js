@@ -50,7 +50,8 @@ const BOT_AGENTS = [
   'bitrix link preview',
   'xing-contenttabreceiver',
   'chrome-lighthouse',
-  'telegrambot'
+  'telegrambot',
+  'google-inspectiontool'
 ];
 
 // These are the extensions that the worker will skip prerendering
