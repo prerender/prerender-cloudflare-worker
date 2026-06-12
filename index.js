@@ -75,7 +75,6 @@ const IGNORE_EXTENSIONS = [
   '.rar',
   '.exe',
   '.wmv',
-  '.doc',
   '.avi',
   '.ppt',
   '.mpg',
@@ -96,8 +95,13 @@ const IGNORE_EXTENSIONS = [
   '.m4v',
   '.torrent',
   '.woff',
+  '.woff2',
   '.ttf',
+  '.otf',
+  '.eot',
   '.svg',
+  '.webp',
+  '.avif',
   '.webmanifest'
 ];
 
